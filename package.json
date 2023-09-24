@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "serve",
     "build": "esbuild ./src/*.ts --bundle --sourcemap --outdir=dist --watch",
+    "deploy": "esbuild ./src/*.ts --bundle --sourcemap --outdir=dist",
     "format": "prettier src/*.ts -w"
   },
   "repository": {
