@@ -137,10 +137,8 @@ const init = () => {
 
 
   // Usage
-//  const YOUR_ENDPOINT = "https://gimbalgod.netlify.app/.netlify/functions/youtube";
-
-  const YOUR_ENDPOINT = "http://localhost:8888/.netlify/functions/youtube";
-//  const YOUR_ENDPOINT = "/.netlify/functions/youtube";
+  const YOUR_ENDPOINT = "https://gimbalgod.netlify.app/.netlify/functions/youtube";
+//  const YOUR_ENDPOINT = "http://localhost:8888/.netlify/functions/youtube";
 
 console.log("fetching", YOUR_ENDPOINT)
 
