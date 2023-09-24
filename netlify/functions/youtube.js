@@ -1,7 +1,7 @@
 const fetch = require('node-fetch');
 
 
-const PLAYLIST_ID = 'PLx0sYbCqOb8TBPRdmBHs5Iftvv9TPboYG';
+const PLAYLIST_ID = 'PLcLFYpmY7aKkFHvEQJSuQlCdtPpLY-344'; // 'PLx0sYbCqOb8TBPRdmBHs5Iftvv9TPboYG';
 const API_KEY = 'AIzaSyDvg64eKENjQGovEYQYkX-3wAai3_XGy6s';
 // const ACCESS_TOKEN = '[YOUR_ACCESS_TOKEN]';
 const YOUTUBE_API_URL = `https://youtube.googleapis.com/youtube/v3/playlistItems?part=contentDetails,snippet&maxResults=50&playlistId=${PLAYLIST_ID}&key=${API_KEY}`;
@@ -25,6 +25,10 @@ exports.handler = async function(event, context) {
         const data = await response.json();
         return {
             statusCode: 200,
+            headers: {
+                "Access-Control-Allow-Origin": "*",  // Allow any origin to access the function
+                "Access-Control-Allow-Headers": "Content-Type"  // Allows the content type header
+            },
             body: JSON.stringify(data)
         };
     } catch (error) {
