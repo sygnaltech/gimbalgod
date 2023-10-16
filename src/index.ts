@@ -50,7 +50,7 @@ async function render(items: any[]): Promise<void> {
     const template = document.querySelector('[template=item]'); //?.firstElementChild;
     const container = template?.parentElement; // document.getElementById('container');
 
-console.log("RENDERing."); 
+    console.log("RENDERing."); 
 
 // console.log(template);
 
@@ -78,6 +78,12 @@ console.log("RENDERing.");
             switch(item.getAttribute("template-field")) {
                 case "title":
                     item.textContent = data.snippet.title;
+                    break;
+                case "thumbnail":
+                    console.log("adding thumbnail", data.snippet.thumbnails.medium.url); 
+                    item.setAttribute("src", data.snippet.thumbnails.medium.url);
+                    item.removeAttribute("srcset");
+                    item.removeAttribute("sizes"); 
                     break;
                 case "play-video": 
                     item.addEventListener('click', () => {
@@ -137,13 +143,13 @@ const init = () => {
 
 
   // Usage
-  const YOUR_ENDPOINT = "https://gimbalgod.netlify.app/.netlify/functions/youtube";
+    const YOUR_ENDPOINT = "https://gimbalgod.netlify.app/.netlify/functions/youtube";
 //  const YOUR_ENDPOINT = "http://localhost:8888/.netlify/functions/youtube";
 
-console.log("fetching", YOUR_ENDPOINT)
+    console.log("fetching", YOUR_ENDPOINT)
 
 //let items: any[] = await
-  fetchAndLogTitles(YOUR_ENDPOINT);
+    fetchAndLogTitles(YOUR_ENDPOINT);
 
 // console.log(items.length);
 
@@ -154,7 +160,7 @@ let player: YT.Player;
 
 (window as any).onYouTubeIframeAPIReady = function () {
 
-console.log("YT iframe ready"); 
+    console.log("YT iframe ready"); 
 
     player = new YT.Player('player', {
         height: '100%', // '360',
